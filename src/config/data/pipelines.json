@@ -240,6 +240,18 @@
       "requiresProject": true
     },
     {
+      "id": "enrich-calculate-visibility-score",
+      "cmd": "actions/enrich-calculate-visibility-score",
+      "name": "Calculate Visibility Score",
+      "desc": "Calculating the 0-100 visibility score for the subject brand",
+      "pipelines": [
+        "build",
+        "rebuild"
+      ],
+      "category": "project",
+      "requiresProject": true
+    },
+    {
       "id": "report-generate-output-cleanup",
       "cmd": "actions/report-generate-output-cleanup",
       "name": "Cleanup: remove old report files",
