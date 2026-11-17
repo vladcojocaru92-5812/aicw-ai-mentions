@@ -8,6 +8,7 @@
 import { isUrlLikeTitle } from './url-utils.js';
 import { CITATION_HEADER, CITATION_ITEM_FORMAT_WITH_URL} from '../config/constants.js';
 import { replaceMacrosInTemplate } from './misc-utils.js';
+import { resolveCitationUrls } from './grounding-resolver.js';
 
 /**
  * Citation data structure
@@ -89,6 +90,7 @@ export async function formatAnswerWithCitations(responseData: any, answerContent
     // Count only url_citation annotations: non-citation annotations must not
     // shift the numbering used by [N] references in the answer text.
     let citationIndex = 0;
+    const pending: { index: number; citation: Citation }[] = [];
     for (const annotation of message.annotations) {
       if (annotation?.type !== 'url_citation') continue;
       const urlCitation = annotation.url_citation ?? (annotation.url ? annotation : null);
@@ -96,11 +98,21 @@ export async function formatAnswerWithCitations(responseData: any, answerContent
       if (!url || !/^https?:\/\//i.test(url)) continue;
       citationIndex++;
       const decodedContent = urlCitation.content ? decodeHtmlEntities(urlCitation.content) : undefined;
-      citationsByIndex.set(citationIndex, {
-        title: urlCitation.title || url,
-        url: url,
-        content: decodedContent  // Include FULL content, NO truncation
+      pending.push({
+        index: citationIndex,
+        citation: {
+          title: urlCitation.title || url,
+          url: url,
+          content: decodedContent  // Include FULL content, NO truncation
+        }
       });
+    }
+    // Grounding redirects (Gemini) are resolved to the real source URL here;
+    // raw answer.json stays untouched.
+    const resolved = await resolveCitationUrls(pending.map(p => p.citation.url));
+    for (const p of pending) {
+      p.citation.url = resolved.get(p.citation.url) ?? p.citation.url;
+      citationsByIndex.set(p.index, p.citation);
     }
   }
 
@@ -108,6 +120,7 @@ export async function formatAnswerWithCitations(responseData: any, answerContent
   // STEP 3: Collect citations from message.citations field
   // =========================================================================
   const citationSources = [message.citations];
+  const pendingRoot: { url: string; title: string; content?: string }[] = [];
   for (const citations of citationSources) {
     if (!citations || !Array.isArray(citations)) {
       continue;
@@ -115,14 +128,22 @@ export async function formatAnswerWithCitations(responseData: any, answerContent
     for (const citation of citations) {
       if (citation.type === 'url_citation' && citation.url_citation) {
         const { url, title, content } = citation.url_citation;
-        if (url && !uniqueCitations.has(url)) {
-          const decodedContent = content ? decodeHtmlEntities(content) : undefined;
-          uniqueCitations.set(url, {
+        if (url) {
+          pendingRoot.push({
+            url,
             title: title || 'Untitled',
-            url: url,
-            content: decodedContent
+            content: content ? decodeHtmlEntities(content) : undefined
           });
         }
+      }
+    }
+  }
+  if (pendingRoot.length > 0) {
+    const resolvedRoot = await resolveCitationUrls(pendingRoot.map(c => c.url));
+    for (const c of pendingRoot) {
+      const url = resolvedRoot.get(c.url) ?? c.url;
+      if (!uniqueCitations.has(url)) {
+        uniqueCitations.set(url, { title: c.title, url, content: c.content });
       }
     }
   }

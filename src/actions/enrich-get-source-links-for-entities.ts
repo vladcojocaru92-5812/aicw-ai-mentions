@@ -12,6 +12,7 @@ import { getProjectNameFromCommandLine, validateAndLoadProject, getTargetDateFro
 import { getModuleNameFromUrl } from '../utils/misc-utils.js';
 import { cleanUrl } from '../utils/url-utils.js';
 import { extractLinksFromContent } from '../utils/link-extraction.js';
+import { resolveCitationUrls } from '../utils/grounding-resolver.js';
 
 const CURRENT_MODULE_NAME = getModuleNameFromUrl(import.meta.url);
 
@@ -552,10 +553,10 @@ function findLinksAtSentenceStart(
  * Find links in annotations where entity is mentioned
  * Checks: title, content, and url fields (with encoding variations)
  */
-function findLinksInAnnotations(
+async function findLinksInAnnotations(
   entityValue: string,
   annotations: any[]
-): string[] {
+): Promise<string[]> {
   const sources: string[] = [];
   const normalizedEntity = entityValue.toLowerCase().trim();
 
@@ -563,31 +564,34 @@ function findLinksInAnnotations(
     return sources;
   }
 
-  for (const annotation of annotations) {
-    if (annotation.type !== 'url_citation') continue;
+  const citations = annotations
+    .filter(a => a?.type === 'url_citation')
+    .map(a => a.url_citation ?? (a.url ? a : null))
+    .filter(c => c && c.url);
+  // Grounding redirects (Gemini) are resolved to the real source URL.
+  const resolved = await resolveCitationUrls(citations.map(c => c.url));
 
-    const citation = annotation.url_citation ?? (annotation.url ? annotation : null);
-    if (!citation || !citation.url) continue;
-
+  for (const citation of citations) {
+    const url = resolved.get(citation.url) ?? citation.url;
     let found = false;
 
     // Field 1: Check title
     if (citation.title && citation.title.toLowerCase().includes(normalizedEntity)) {
-      const cleaned = cleanUrl(citation.url);
+      const cleaned = cleanUrl(url);
       if (cleaned) sources.push(cleaned);
       found = true;
     }
 
     // Field 2: Check content (OpenAI provides this with snippets)
     if (!found && citation.content && citation.content.toLowerCase().includes(normalizedEntity)) {
-      const cleaned = cleanUrl(citation.url);
+      const cleaned = cleanUrl(url);
       if (cleaned) sources.push(cleaned);
       found = true;
     }
 
     // Field 3: Check URL (with encoding variations)
     if (!found) {
-      const urlDecoded = decodeURIComponent(citation.url).toLowerCase();
+      const urlDecoded = decodeURIComponent(url).toLowerCase();
       const urlVariations = [
         normalizedEntity,
         normalizedEntity.replace(/ /g, '-'),   // "Naval Ravikant" → "naval-ravikant"
@@ -597,7 +601,7 @@ function findLinksInAnnotations(
 
       for (const variation of urlVariations) {
         if (urlDecoded.includes(variation)) {
-          const cleaned = cleanUrl(citation.url);
+          const cleaned = cleanUrl(url);
           if (cleaned) sources.push(cleaned);
           break;
         }
@@ -850,7 +854,7 @@ export async function enrichGetSourceLinksForEntities(
               let foundInThisAnswer = false;
 
               // Strategy 1: Annotations (title + content + url)
-              const annotationLinks = findLinksInAnnotations(item.value, annotations);
+              const annotationLinks = await findLinksInAnnotations(item.value, annotations);
               for (const url of annotationLinks) {
                 allSources.push({ url, bots: answerFile.bots, dates: [targetDate] });
               }
@@ -926,7 +930,7 @@ export async function enrichGetSourceLinksForEntities(
                     let foundInPrevAnswer = false;
 
                     // Use same strategies for previous dates
-                    const annotationLinks = findLinksInAnnotations(item.value, annotations);
+                    const annotationLinks = await findLinksInAnnotations(item.value, annotations);
                     for (const url of annotationLinks) {
                       allSources.push({ url, bots: answerFile.bots, dates: [prevDate] });
                     }
