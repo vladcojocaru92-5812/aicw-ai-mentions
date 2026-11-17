@@ -240,6 +240,18 @@
       "requiresProject": true
     },
     {
+      "id": "enrich-calculate-visibility-score",
+      "cmd": "actions/enrich-calculate-visibility-score",
+      "name": "Calculate Visibility Score",
+      "desc": "Calculating the 0-100 visibility score for the subject brand",
+      "pipelines": [
+        "build",
+        "rebuild"
+      ],
+      "category": "project",
+      "requiresProject": true
+    },
+    {
       "id": "fetch-geo-signals",
       "cmd": "actions/fetch-geo-signals",
       "name": "Fetch on-site GEO signals",
