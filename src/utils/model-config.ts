@@ -28,7 +28,7 @@ export interface ModelConfig {
   updated_at?: string;
 
   // additional parameters to pass to the API if available
-  extra_body?: []; 
+  extra_body?: Record<string, unknown>; 
   // target model id if this model is an alias
   targetModelId?: string;
 }

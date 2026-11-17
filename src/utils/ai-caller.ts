@@ -12,10 +12,10 @@ import { AICW_GITHUB_URL } from '../config/constants.js';
 const DEFAULT_REQUEST_TIMEOUT_FOR_AI = 30000;
 
 // Cache TTL configuration (seconds)
-// Default: 94608000 seconds = 3 years (1095 days)
-// Set AICW_AI_CACHE_TTL_SECONDS=0 to disable caching
+// Default: 0 = disabled, so paid runs always fetch fresh answers
+// Set AICW_AI_CACHE_TTL_SECONDS>0 to enable caching
 const AI_RESPONSE_CACHE_TTL_SECONDS = parseInt(
-  process.env.AICW_AI_CACHE_TTL_SECONDS || '94608000'
+  process.env.AICW_AI_CACHE_TTL_SECONDS || '0'
 );
 
 const DEFAULT_AI_RESPONSE_CACHE_NAME = 'ai-responses';
@@ -189,18 +189,15 @@ function isRetryableError(error: any): boolean {
 }
 
 function addExtraBodyToRequestIfRequired(request: any, modelConfig: ModelConfig) {
-  // we need to merge the model params with the request params
   if (modelConfig.extra_body) {
-    // merging "extra_body" defined in the model config into the request params
-    request = { 
-      ...request, 
-      extra_body: modelConfig.extra_body 
+    // Flatten at the top level: openai-node v4 serializes the body as-is,
+    // so a nested "extra_body" reaches OpenRouter as a literal field and is ignored.
+    return {
+      ...request,
+      ...modelConfig.extra_body
     };
-    return request;
-  } else {
-    // return request as is
-    return request;
   }
+  return request;
 }
 
 /**

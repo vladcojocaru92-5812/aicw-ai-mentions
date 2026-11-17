@@ -566,7 +566,7 @@ function findLinksInAnnotations(
   for (const annotation of annotations) {
     if (annotation.type !== 'url_citation') continue;
 
-    const citation = annotation.url_citation;
+    const citation = annotation.url_citation ?? (annotation.url ? annotation : null);
     if (!citation || !citation.url) continue;
 
     let found = false;

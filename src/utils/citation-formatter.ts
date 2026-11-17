@@ -86,22 +86,22 @@ export async function formatAnswerWithCitations(responseData: any, answerContent
   // STEP 2: Process annotations with titles and CONTENT (OpenAI format)
   // =========================================================================
   if (message.annotations && Array.isArray(message.annotations)) {
-    message.annotations.forEach((annotation: any, index: number) => {
-      if (annotation.type === 'url_citation' && annotation.url_citation) {
-        const { url, title, content } = annotation.url_citation;
-        if (url) {
-          // Decode HTML entities in content
-          const decodedContent = content ? decodeHtmlEntities(content) : undefined;
-
-          // Annotations are 1-based
-          citationsByIndex.set(index + 1, {
-            title: title || url,
-            url: url,
-            content: decodedContent  // Include FULL content, NO truncation
-          });
-        }
-      }
-    });
+    // Count only url_citation annotations: non-citation annotations must not
+    // shift the numbering used by [N] references in the answer text.
+    let citationIndex = 0;
+    for (const annotation of message.annotations) {
+      if (annotation?.type !== 'url_citation') continue;
+      const urlCitation = annotation.url_citation ?? (annotation.url ? annotation : null);
+      const url = urlCitation?.url;
+      if (!url || !/^https?:\/\//i.test(url)) continue;
+      citationIndex++;
+      const decodedContent = urlCitation.content ? decodeHtmlEntities(urlCitation.content) : undefined;
+      citationsByIndex.set(citationIndex, {
+        title: urlCitation.title || url,
+        url: url,
+        content: decodedContent  // Include FULL content, NO truncation
+      });
+    }
   }
 
   // =========================================================================
@@ -216,7 +216,10 @@ export async function formatAnswerWithCitations(responseData: any, answerContent
       .sort((a, b) => a[0] - b[0]);
 
     // List all citations with their original numbers and FULL content
+    const seenUrls = new Set<string>();
     for (const [index, citation] of sortedCitations) {
+      if (seenUrls.has(citation.url)) continue;
+      seenUrls.add(citation.url);
       // Format title as bold link
         citationsFooter += `\n${await replaceMacrosInTemplate(
           CITATION_ITEM_FORMAT_WITH_URL, { 
@@ -241,7 +244,10 @@ export async function formatAnswerWithCitations(responseData: any, answerContent
       .sort((a, b) => a[0] - b[0]);
 
     // List all citations with FULL content
+    const seenUrls = new Set<string>();
     for (const [index, citation] of sortedCitations) {
+      if (seenUrls.has(citation.url)) continue;
+      seenUrls.add(citation.url);
       // Format title as bold link
       citationsFooter += `\n${await replaceMacrosInTemplate(
         CITATION_ITEM_FORMAT_WITH_URL, { 

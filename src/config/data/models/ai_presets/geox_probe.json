@@ -1,0 +1,13 @@
+{
+  "name": "GEOX Probe (2 cheap engines)",
+  "description": "Minimal paid probe: GPT-5.4 Nano + Gemini 3 Flash Preview, native web search; entity extraction on gpt-4o-mini",
+  "models": {
+    "get_answer": [
+      "or_openai_gpt_5_4_nano",
+      "or_google_gemini_flash_3"
+    ],
+    "extract_entities": [
+      "or_openai_gpt_4o_mini"
+    ]
+  }
+}
