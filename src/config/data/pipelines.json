@@ -240,6 +240,19 @@
       "requiresProject": true
     },
     {
+      "id": "fetch-geo-signals",
+      "cmd": "actions/fetch-geo-signals",
+      "name": "Fetch on-site GEO signals",
+      "desc": "Collecting llms.txt, robots AI-bot stance, sitemap stats and homepage structured data",
+      "pipelines": [
+        "build",
+        "rebuild",
+        "geo-signals"
+      ],
+      "category": "project",
+      "requiresProject": true
+    },
+    {
       "id": "report-generate-output-cleanup",
       "cmd": "actions/report-generate-output-cleanup",
       "name": "Cleanup: remove old report files",
@@ -447,6 +460,13 @@
       "category": "project",
       "requiresApiKeys": true,
       "type": "advanced"
+    },
+    {
+      "id": "geo-signals",
+      "name": "Fetch on-site GEO signals",
+      "description": "collect llms.txt, robots.txt AI-bot stance, sitemap stats and homepage JSON-LD for the brand site (no AI keys needed)",
+      "category": "project",
+      "requiresApiKeys": false
     },
     {
       "id": "setup-api-key",
