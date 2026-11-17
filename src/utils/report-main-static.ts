@@ -14,6 +14,9 @@ import { getCurrentVersion } from './update-checker.js';
 import { getCurrentDateTimeAsStringISO } from '../config/user-paths.js';
 import { MAX_BRANDS_IN_REPORT, MAX_SOURCES_IN_REPORT } from '../config/constants.js';
 import { getModelById } from '../ai-preset-manager.js';
+import { generateScoreHtml } from './report-score.js';
+import { generateSolutionHtml, resolveReportTier, SolutionContext } from './report-solution.js';
+import { generateBattlecardsHtml } from './report-battlecards.js';
 
 const MAX_LINKS_IN_REPORT = 100;
 const DISPLAY_LINK_MAX_LENGTH = 56;
@@ -1159,6 +1162,32 @@ export async function generateStaticMainPage(config: StaticReportConfig): Promis
       topBrands
     });
 
+    // GEOX sections: score (upstream contract), solution (9 USD), battlecards (19 USD).
+    // Each degrades to an empty string so a missing field never fails the report.
+    const safeSection = (label: string, build: () => string): string => {
+      try {
+        return build();
+      } catch (err) {
+        logger.warn(`Could not generate ${label}: ${err instanceof Error ? err.message : String(err)}`);
+        return '';
+      }
+    };
+    const solutionContext: SolutionContext = {
+      subject: project,
+      brands,
+      linkDomains,
+      bots,
+      questions: questionsForSeo,
+      targetDate,
+      data
+    };
+    const tier = resolveReportTier(data);
+    const scoreHtml = safeSection('visibility score', () => generateScoreHtml(data.score, bots));
+    const solutionHtml = safeSection('solution section', () => generateSolutionHtml(solutionContext));
+    const battlecardsHtml = tier === 'beat'
+      ? safeSection('battlecards', () => generateBattlecardsHtml(solutionContext))
+      : '';
+
     // Create URL-safe slug for UTM parameters
     const projectSlug = project.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
@@ -1187,6 +1216,9 @@ export async function generateStaticMainPage(config: StaticReportConfig): Promis
       '{{STATIC_REPORT_HEADER_HTML}}': reportHeaderHtml,
       '{{STATIC_INTRO_HTML}}': introHtml,
       '{{STATIC_FAQ_HTML}}': faqHtml,
+      '{{STATIC_SCORE_HTML}}': scoreHtml,
+      '{{STATIC_SOLUTION_HTML}}': solutionHtml,
+      '{{STATIC_BATTLECARDS_HTML}}': battlecardsHtml,
       '{{REPORT_QUESTIONS_JSON}}': reportQuestionsJson,
       '{{FOOTER_CUSTOM_CODE}}': customFooterCode
     };
