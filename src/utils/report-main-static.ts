@@ -17,6 +17,7 @@ import { getModelById } from '../ai-preset-manager.js';
 import { generateScoreHtml } from './report-score.js';
 import { generateSolutionHtml, resolveReportTier, SolutionContext } from './report-solution.js';
 import { generateBattlecardsHtml } from './report-battlecards.js';
+import { generateFreeReportHtml } from './report-free.js';
 
 const MAX_LINKS_IN_REPORT = 100;
 const DISPLAY_LINK_MAX_LENGTH = 56;
@@ -888,7 +889,7 @@ function buildJsonLd(
 ): string {
   // Build rich description for Dataset (plain text, no HTML)
   const botNamesText = meta.botNames.slice(0, 5).join(', ') + (meta.botNames.length > 5 ? ', and more' : '');
-  const richDescription = `This report was generated for entity mentions and citations about ${meta.projectName} in answers from ${meta.botsCount} AI models (namely: ${botNamesText}). AI models were asked the following questions: ${meta.questionsList}. ${meta.brandsCount} mentions and ${meta.domainsCount} link domains were detected. Top mentions detected are: ${meta.topBrandsList}. This report was generated on ${meta.formattedDate} by AICW AI Mentions.`;
+  const richDescription = `This report was generated for entity mentions and citations about ${meta.projectName} in answers from ${meta.botsCount} AI models (namely: ${botNamesText}). AI models were asked the following questions: ${meta.questionsList}. ${meta.brandsCount} mentions and ${meta.domainsCount} link domains were detected. Top mentions detected are: ${meta.topBrandsList}. This report was generated on ${meta.formattedDate} by GEOX.`;
 
   // Build absolute URL for the report (for breadcrumbs)
   const absoluteReportUrl = meta.baseUrl
@@ -898,20 +899,20 @@ function buildJsonLd(
   // For reports hosted on aichatwatch.com, this should be https://aichatwatch.com/ranking/
   const absoluteProjectUrl = meta.baseUrl
     ? meta.baseUrl.replace(/\/[^/]+\/$/, '/')
-    : 'https://aichatwatch.com/ranking/';
+    : '/';
 
   const graph: object[] = [
     {
       "@type": "WebPage",
       "@id": `${meta.canonicalUrl}#webpage`,
       "url": meta.canonicalUrl,
-      "name": `${meta.reportTitle} | AICW AI Mentions`,
+      "name": `${meta.reportTitle} | GEOX`,
       "description": `AI mentions report: ${meta.brandsCount} entities mentioned across ${meta.botsCount} AI models.`,
       "datePublished": meta.reportDate,
       "isPartOf": {
         "@type": "WebSite",
-        "name": "AICW AI Mentions",
-        "url": "https://aichatwatch.com"
+        "name": "GEOX",
+        "url": "/"
       }
     },
     {
@@ -922,14 +923,14 @@ function buildJsonLd(
       "reportNumber": meta.reportDate.replace(/-/g, ''),
       "author": {
         "@type": "Organization",
-        "name": "AICW AI Mentions",
-        "url": "https://aichatwatch.com"
+        "name": "GEOX",
+        "url": "/"
       }
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "AICW AI Mentions", "item": "https://aichatwatch.com" },
+        { "@type": "ListItem", "position": 1, "name": "GEOX", "item": "/" },
         { "@type": "ListItem", "position": 2, "name": meta.projectName, "item": absoluteProjectUrl },
         { "@type": "ListItem", "position": 3, "name": "Report", "item": absoluteReportUrl }
       ]
@@ -1231,6 +1232,12 @@ export async function generateStaticMainPage(config: StaticReportConfig): Promis
     // Write output file
     const outputPath = path.join(outputDir, 'index.html');
     await writeFileAtomic(outputPath, html);
+
+    // GEOX free tier: score-only free.html next to the paid report (see report-free.ts).
+    if (isAggregate) {
+      const freeHtml = safeSection('free report', () => generateFreeReportHtml(solutionContext));
+      if (freeHtml) await writeFileAtomic(path.join(outputDir, 'free.html'), freeHtml);
+    }
 
     // Write report metadata for navigation (used by reports index page)
     const reportMeta = {

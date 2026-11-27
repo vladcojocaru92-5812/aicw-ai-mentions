@@ -27,7 +27,7 @@ test('main report tabs are ordered mentions, links, link domains', () => {
   assert.ok(linksIndex < domainsIndex, 'Links should be before Link Domains');
   assert.doesNotMatch(template, />Sources</);
   assert.match(template, /panel-domains/);
-  assert.match(template, /aicw-ai-mentions_link-domains_/);
+  assert.match(template, /geox_link-domains_/);
   assert.match(template, /data-table-model-select/);
   assert.match(template, /All models/);
   assert.match(template, /setTableModelFilter/);
@@ -45,18 +45,15 @@ test('main report tabs are ordered mentions, links, link domains', () => {
   assert.match(template, /REPORT_QUESTIONS_JSON/);
   assert.match(template, /answer-response-markdown/);
   assert.match(template, /setAnswerTab/);
-  assert.match(template, /Created with AICW AI Mentions/);
-  assert.match(template, /https:\/\/aichatwatch\.com\/aicw-ai-mentions\//);
+  assert.match(template, /Created with GEOX/);
   assert.match(reportGenerator, /truncateMiddle/);
   assert.match(reportGenerator, /data-export-value/);
   assert.doesNotMatch(template, /View all categories/);
   assert.doesNotMatch(template, /github\.com\/aichatwatch\/aicw-ai-mentions/);
 });
 
-test('public report templates link AICW AI Mentions to the product page', () => {
+test('customer-facing report templates carry GEOX branding and no upstream links', () => {
   const templateFiles = [
-    'src/config/data/templates/navigation/home.html',
-    'src/config/data/templates/navigation/project-detail.html',
     'src/config/data/templates/report/html/projects/project/question/index-static.html',
     'src/config/data/templates/report/html/projects/project/question/mention/mention-page.html',
     'src/config/data/templates/report/html/projects/project/question/website/source-page.html',
@@ -64,11 +61,8 @@ test('public report templates link AICW AI Mentions to the product page', () => 
 
   for (const file of templateFiles) {
     const template = readFileSync(path.join(process.cwd(), file), 'utf8');
-    assert.doesNotMatch(template, /github\.com\/aichatwatch\/aicw-ai-mentions/, file);
+    assert.doesNotMatch(template, /aichatwatch\.com|AICW AI Mentions|AI Chat Watch/, file);
+    assert.match(template, /GEOX/, file);
+    assert.match(template, /<meta name="robots" content="noindex, nofollow">/, file);
   }
-
-  const combined = templateFiles
-    .map(file => readFileSync(path.join(process.cwd(), file), 'utf8'))
-    .join('\n');
-  assert.match(combined, /https:\/\/aichatwatch\.com\/aicw-ai-mentions\//);
 });

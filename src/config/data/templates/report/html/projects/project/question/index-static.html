@@ -6,32 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- SEO Meta Tags -->
-    <title>{{REPORT_TITLE}} | AICW AI Mentions</title>
+    <title>{{REPORT_TITLE}} | GEOX</title>
     <meta name="description" content="AI mentions report for {{PROJECT_NAME}}: {{ENTITY_COUNT}} mentions detected across {{BOT_COUNT}} AI models including ChatGPT, Gemini, Claude, Perplexity.">
-    <meta name="keywords" content="AI mentions, AI recommendations, brand visibility, ChatGPT mentions, Gemini, Claude, Perplexity, aicw-ai-mentions">
-    <meta name="author" content="AICW AI Mentions">
-    <meta name="robots" content="index, follow">
+    <meta name="keywords" content="AI mentions, AI recommendations, brand visibility, ChatGPT mentions, Gemini, Claude, Perplexity">
+    <meta name="author" content="GEOX">
+    <meta name="robots" content="noindex, nofollow">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="{{REPORT_TITLE}} | AICW AI Mentions">
+    <meta property="og:title" content="{{REPORT_TITLE}} | GEOX">
     <meta property="og:description" content="{{ENTITY_COUNT}} mentions detected across {{BOT_COUNT}} AI models. View share of voice, cited links, and link domains.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="{{CANONICAL_URL}}">
-    <meta property="og:site_name" content="AICW AI Mentions">
+    <meta property="og:site_name" content="GEOX">
     <meta property="og:locale" content="en_US">
     <meta property="article:published_time" content="{{REPORT_DATE_ISO}}">
-    <meta property="article:author" content="AICW AI Mentions">
+    <meta property="article:author" content="GEOX">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="{{REPORT_TITLE}} | AICW AI Mentions">
+    <meta name="twitter:title" content="{{REPORT_TITLE}} | GEOX">
     <meta name="twitter:description" content="{{ENTITY_COUNT}} mentions detected across {{BOT_COUNT}} AI models.">
 
     <!-- Canonical URL -->
     <link rel="canonical" href="{{CANONICAL_URL}}">
-
-    <!-- Favicon -->
-    <link rel="icon" href="https://aichatwatch.com/favicon.svg" type="image/svg+xml">
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -574,37 +571,25 @@
         <div class="container mx-auto px-4 py-3">
             <!-- Mobile Header -->
             <div class="md:hidden flex flex-col items-center justify-center w-full space-y-2">
-                <a href="https://aichatwatch.com/aicw-ai-mentions/?utm_source=public_reports&utm_medium=header&utm_campaign={{PROJECT_NAME_SLUG}}" title="Go to AICW AI Mentions"
+                <a href="/" title="Go to GEOX"
                    class="flex flex-col items-center leading-none text-gray-900 dark:text-white hover:opacity-80 transition-opacity">
-                    <span class="text-2xl font-bold tracking-tight">AICW AI Mentions</span>
+                    <span class="text-2xl font-bold tracking-tight">GEOX</span>
                 </a>
                 <p class="text-sm text-gray-600 dark:text-gray-400 text-center">
                     AI Mentions, Links & Domains Report for <strong class="text-gray-900 dark:text-white">{{PROJECT_NAME}}</strong>
                 </p>
-                <div class="flex items-center gap-3">
-                    <a href="https://aichatwatch.com/aicw-ai-mentions/?utm_source=public_reports&utm_medium=header&utm_campaign={{PROJECT_NAME_SLUG}}" target="_blank" rel="noopener noreferrer"
-                       class="inline-flex items-center gap-2 text-sm font-semibold text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300">
-                        AI Chat Watch
-                    </a>
-                </div>
             </div>
 
             <!-- Desktop Header -->
             <div class="hidden md:flex flex-row items-center justify-between w-full">
                 <div class="flex flex-col">
-                    <a href="https://aichatwatch.com/aicw-ai-mentions/?utm_source=public_reports&utm_medium=header&utm_campaign={{PROJECT_NAME_SLUG}}" title="Go to AICW AI Mentions"
+                    <a href="/" title="Go to GEOX"
                        class="flex flex-col leading-none text-gray-900 dark:text-white hover:opacity-80 transition-opacity">
-                        <span class="text-3xl font-bold tracking-tight">AICW AI Mentions</span>
+                        <span class="text-3xl font-bold tracking-tight">GEOX</span>
                     </a>
                     <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
                         AI Mentions, Links & Domains Report for <strong class="text-gray-900 dark:text-white">{{PROJECT_NAME}}</strong>
                     </p>
-                </div>
-                <div class="flex items-center gap-4">
-                    <a href="https://aichatwatch.com/aicw-ai-mentions/?utm_source=public_reports&utm_medium=header&utm_campaign={{PROJECT_NAME_SLUG}}" target="_blank" rel="noopener noreferrer"
-                       class="inline-flex items-center gap-2 text-lg font-semibold text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300">
-                        AI Chat Watch
-                    </a>
                 </div>
             </div>
         </div>
@@ -656,7 +641,7 @@
                         People, organizations, products, and brands mentioned by AI models, ranked by share of voice
                     </p>
                 </div>
-                <button type="button" onclick="exportTableToCSV('table-mentions', 'aicw-ai-mentions_mentions_{{PROJECT_NAME_SLUG}}.csv')"
+                <button type="button" onclick="exportTableToCSV('table-mentions', 'geox_mentions_{{PROJECT_NAME_SLUG}}.csv')"
                     class="inline-flex items-center justify-center gap-2 px-3 py-2 rounded-md border border-gray-200 dark:border-gray-700 text-sm font-medium text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700">
                     <i class="fas fa-download"></i>
                     <span>Export CSV</span>
@@ -692,7 +677,7 @@
                         Individual cited URLs, ranked by share of voice
                     </p>
                 </div>
-                <button type="button" onclick="exportTableToCSV('table-links', 'aicw-ai-mentions_links_{{PROJECT_NAME_SLUG}}.csv')"
+                <button type="button" onclick="exportTableToCSV('table-links', 'geox_links_{{PROJECT_NAME_SLUG}}.csv')"
                     class="inline-flex items-center justify-center gap-2 px-3 py-2 rounded-md border border-gray-200 dark:border-gray-700 text-sm font-medium text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700">
                     <i class="fas fa-download"></i>
                     <span>Export CSV</span>
@@ -728,7 +713,7 @@
                         Domains grouped from cited URLs, ranked by share of voice
                     </p>
                 </div>
-                <button type="button" onclick="exportTableToCSV('table-domains', 'aicw-ai-mentions_link-domains_{{PROJECT_NAME_SLUG}}.csv')"
+                <button type="button" onclick="exportTableToCSV('table-domains', 'geox_link-domains_{{PROJECT_NAME_SLUG}}.csv')"
                     class="inline-flex items-center justify-center gap-2 px-3 py-2 rounded-md border border-gray-200 dark:border-gray-700 text-sm font-medium text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700">
                     <i class="fas fa-download"></i>
                     <span>Export CSV</span>
@@ -777,23 +762,15 @@
             <!-- Brand + CTA Row -->
             <div class="flex flex-col md:flex-row gap-8 items-start md:items-center justify-between mb-8">
                 <div>
-                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white">AICW AI Mentions</h3>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">Open-source AI mention reports</p>
-                </div>
-                <div class="flex flex-wrap items-center gap-4">
-                    <a href="https://aichatwatch.com/aicw-ai-mentions/?utm_source=public_reports&utm_medium=footer&utm_campaign={{PROJECT_NAME_SLUG}}" target="_blank" rel="noopener noreferrer"
-                       class="inline-flex items-center gap-2 text-lg font-semibold text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300">
-                        AI Chat Watch
-                    </a>
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white">GEOX</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">AI visibility reports</p>
                 </div>
             </div>
 
             <!-- Copyright + Meta -->
             <div class="pt-6 border-t border-gray-200 dark:border-gray-700">
                 <p class="text-sm text-gray-600 dark:text-gray-400">
-                    &copy; <span id="currentYear"></span>
-                    <a href="https://aichatwatch.com/aicw-ai-mentions/?utm_source=public_reports&utm_campaign={{PROJECT_NAME_SLUG}}" class="hover:text-indigo-600 dark:hover:text-indigo-400">AI Chat Watch</a>.
-                    Generated by <a href="https://aichatwatch.com/aicw-ai-mentions/?utm_source=public_reports&utm_campaign={{PROJECT_NAME_SLUG}}" class="hover:text-indigo-600 dark:hover:text-indigo-400">AICW AI Mentions</a>.
+                    &copy; <span id="currentYear"></span> GEOX.
                 </p>
                 <p class="text-xs text-gray-500 dark:text-gray-500 mt-1">
                     Generated on {{REPORT_CREATED_AT_DATETIME}} | Engine v{{REPORT_ENGINE_VERSION}}
@@ -803,11 +780,11 @@
             <!-- Disclaimer -->
             <p class="text-xs text-gray-500 dark:text-gray-500 mt-6 leading-relaxed">
                 DISCLAIMER: Intellectual Property Notice: All organizations and company names, trademarks, registered trademarks, service marks, logos, brand names, trade dress, and other intellectual property displayed in this report remain the sole property of their respective owners. Use of these marks does not imply any affiliation with, sponsorship by, or endorsement from the trademark holders. Any references to third-party trademarks are made solely for identification and informational purposes.
-No Endorsement: The inclusion of any third-party content, data, links, references, or mentions in this report does not constitute, and should not be construed as, an endorsement, recommendation, or approval by AI Chat Watch of any product, service, company, organization, or viewpoint. Similarly, the absence of any entity from this report should not be interpreted as a negative assessment.
-Accuracy and Reliability: AI Chat Watch makes no representations, warranties, or guarantees—express or implied—regarding the accuracy, completeness, reliability, timeliness, or suitability of any information contained in this report. The data presented herein is derived from automated analysis of artificial intelligence systems and publicly available sources, which may contain errors, omissions, or inaccuracies. AI-generated content and responses are subject to change without notice and may vary based on numerous factors beyond our control.
-Limitation of Liability: To the fullest extent permitted by applicable law, AI Chat Watch, its affiliates, officers, directors, employees, agents, and licensors shall not be liable for any direct, indirect, incidental, special, consequential, punitive, or exemplary damages arising from or related to the use of, reliance upon, or inability to use any information contained in this report, even if advised of the possibility of such damages.
+No Endorsement: The inclusion of any third-party content, data, links, references, or mentions in this report does not constitute, and should not be construed as, an endorsement, recommendation, or approval by GEOX of any product, service, company, organization, or viewpoint. Similarly, the absence of any entity from this report should not be interpreted as a negative assessment.
+Accuracy and Reliability: GEOX makes no representations, warranties, or guarantees—express or implied—regarding the accuracy, completeness, reliability, timeliness, or suitability of any information contained in this report. The data presented herein is derived from automated analysis of artificial intelligence systems and publicly available sources, which may contain errors, omissions, or inaccuracies. AI-generated content and responses are subject to change without notice and may vary based on numerous factors beyond our control.
+Limitation of Liability: To the fullest extent permitted by applicable law, GEOX, its affiliates, officers, directors, employees, agents, and licensors shall not be liable for any direct, indirect, incidental, special, consequential, punitive, or exemplary damages arising from or related to the use of, reliance upon, or inability to use any information contained in this report, even if advised of the possibility of such damages.
 No Professional Advice: The information provided in this report is for general informational and research purposes only and does not constitute legal, financial, business, marketing, or other professional advice. Users should consult qualified professionals before making any decisions based on the information contained herein.
-Third-Party Data Sources: This report may contain information obtained from or generated by third-party artificial intelligence platforms and other external sources. AI Chat Watch does not control, verify, or guarantee the content produced by such third parties and assumes no responsibility for their accuracy, policies, or practices.
+Third-Party Data Sources: This report may contain information obtained from or generated by third-party artificial intelligence platforms and other external sources. GEOX does not control, verify, or guarantee the content produced by such third parties and assumes no responsibility for their accuracy, policies, or practices.
 Fair Use and Research Purpose: This report is provided for informational, research, and analytical purposes. Any data or analysis presented is intended to provide market insights and should not be used as the sole basis for business, investment, or strategic decisions.
 Modifications: Information in this report reflects data available at the time of generation. The report generator may change over time; regenerate reports after updating the software if you want the latest report format.
 Governing Law: This disclaimer shall be governed by and construed in accordance with applicable laws, without regard to conflicts of law principles.
@@ -876,8 +853,7 @@ By accessing or using this report, you acknowledge that you have read, understoo
             });
 
             csvRows.push('', '');
-            csvRows.push(csvCell('Created with AICW AI Mentions'));
-            csvRows.push(csvCell('https://aichatwatch.com/aicw-ai-mentions/'));
+            csvRows.push(csvCell('Created with GEOX'));
             var csv = csvRows.join('\n');
 
             var blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });

@@ -1,0 +1,617 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-27T08:05:02.762Z",
+  "title": "Design System: GEOX",
+  "extensions": {
+    "colorMeta": {
+      "navy": {
+        "role": "primary",
+        "displayName": "Placard Navy",
+        "canonical": "oklch(31.2% 0.117 262.7)",
+        "tonalRamp": [
+          "#060b15",
+          "#0f2248",
+          "#1c3b7d",
+          "#395b9f",
+          "#577cc3",
+          "#779de8",
+          "#a7c5fc",
+          "#e6efff"
+        ],
+        "hex": "#0d2b6b"
+      },
+      "navy-hover": {
+        "role": "primary",
+        "displayName": "Lit Navy",
+        "canonical": "oklch(38.5% 0.144 262.9)",
+        "tonalRamp": [
+          "#050b17",
+          "#0a2050",
+          "#12388a",
+          "#2f58ae",
+          "#4e7ad2",
+          "#6e9cf8",
+          "#a0c4ff",
+          "#e4efff"
+        ],
+        "hex": "#163c8f"
+      },
+      "gold": {
+        "role": "secondary",
+        "displayName": "Tape Gold",
+        "canonical": "oklch(83.4% 0.158 89.0)",
+        "tonalRamp": [
+          "#100a00",
+          "#371e00",
+          "#613500",
+          "#815400",
+          "#a37500",
+          "#c69700",
+          "#e2c068",
+          "#f7eed7"
+        ],
+        "hex": "#f2c230"
+      },
+      "tape": {
+        "role": "secondary",
+        "displayName": "Gold Tape",
+        "canonical": "rgba(242, 194, 48, 0.62)",
+        "tonalRamp": [
+          "#100a00",
+          "#371e00",
+          "#613500",
+          "#815400",
+          "#a37500",
+          "#c69700",
+          "#e2c068",
+          "#f7eed7"
+        ],
+        "rampBase": "#f2c230"
+      },
+      "gold-hover": {
+        "role": "secondary",
+        "displayName": "Pale Tape Gold",
+        "canonical": "oklch(87.3% 0.139 92.0)",
+        "tonalRamp": [
+          "#0f0b01",
+          "#332000",
+          "#5a3900",
+          "#7a5800",
+          "#9b7900",
+          "#be9b13",
+          "#dbc276",
+          "#f5eeda"
+        ],
+        "hex": "#f6d25e"
+      },
+      "frame": {
+        "role": "neutral",
+        "displayName": "Shopfront Black",
+        "canonical": "oklch(18.9% 0.028 242.9)",
+        "tonalRamp": [
+          "#090b0d",
+          "#1d252c",
+          "#33424d",
+          "#50606c",
+          "#70808d",
+          "#90a1af",
+          "#bac6d0",
+          "#ebeff2"
+        ],
+        "hex": "#08151f"
+      },
+      "glass": {
+        "role": "neutral",
+        "displayName": "Night Window Glass",
+        "canonical": "oklch(27.5% 0.051 244.7)",
+        "tonalRamp": [
+          "#080c0f",
+          "#162633",
+          "#274359",
+          "#456179",
+          "#64819a",
+          "#84a2bd",
+          "#b1c7db",
+          "#e9eff5"
+        ],
+        "hex": "#0f2a3f"
+      },
+      "glass-hi": {
+        "role": "neutral",
+        "displayName": "Glass Sheen",
+        "canonical": "oklch(33.0% 0.056 239.2)",
+        "tonalRamp": [
+          "#070c0f",
+          "#132634",
+          "#21445a",
+          "#3f627a",
+          "#5e829b",
+          "#7fa4be",
+          "#adc8dc",
+          "#e8f0f5"
+        ],
+        "hex": "#16394f"
+      },
+      "glass-lo": {
+        "role": "neutral",
+        "displayName": "Glass Shadow",
+        "canonical": "oklch(23.5% 0.041 243.9)",
+        "tonalRamp": [
+          "#080c0e",
+          "#192630",
+          "#2d4254",
+          "#4a6173",
+          "#698094",
+          "#89a2b7",
+          "#b5c7d6",
+          "#eaeff4"
+        ],
+        "hex": "#0b2030"
+      },
+      "lamp": {
+        "role": "neutral",
+        "displayName": "Back-Room Lamp",
+        "canonical": "rgba(255, 196, 120, 0.09)",
+        "tonalRamp": [
+          "#110902",
+          "#391c00",
+          "#633100",
+          "#845000",
+          "#a7711e",
+          "#ca9245",
+          "#e6bc88",
+          "#f8ecde"
+        ],
+        "rampBase": "#ffc478"
+      },
+      "vinyl": {
+        "role": "neutral",
+        "displayName": "White Vinyl",
+        "canonical": "oklch(97.4% 0.004 236.5)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#232425",
+          "#3e4042",
+          "#5b5e60",
+          "#7b7e7f",
+          "#9c9fa1",
+          "#c2c4c6",
+          "#eeeeef"
+        ],
+        "hex": "#f4f7f9"
+      },
+      "vinyl-2": {
+        "role": "neutral",
+        "displayName": "Frosted Vinyl",
+        "canonical": "oklch(83.0% 0.028 241.2)",
+        "tonalRamp": [
+          "#090b0d",
+          "#1c252c",
+          "#33424d",
+          "#50606c",
+          "#6f808d",
+          "#90a1ae",
+          "#b9c6d0",
+          "#ebeff2"
+        ],
+        "hex": "#b8cad8"
+      },
+      "vinyl-rule": {
+        "role": "neutral",
+        "displayName": "Vinyl Hairline",
+        "canonical": "rgba(184, 202, 216, 0.28)",
+        "tonalRamp": [
+          "#090b0d",
+          "#1c252c",
+          "#33424d",
+          "#50606c",
+          "#6f808d",
+          "#90a1ae",
+          "#b9c6d0",
+          "#ebeff2"
+        ],
+        "rampBase": "#b8cad8"
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Posted Paper",
+        "canonical": "oklch(100.0% 0.000 0)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#242424",
+          "#404040",
+          "#5d5d5d",
+          "#7d7d7d",
+          "#9e9e9e",
+          "#c4c4c4",
+          "#eeeeee"
+        ],
+        "hex": "#ffffff"
+      },
+      "paper-tint": {
+        "role": "neutral",
+        "displayName": "Thumbed Paper",
+        "canonical": "oklch(96.0% 0.009 258.3)",
+        "tonalRamp": [
+          "#0b0b0c",
+          "#222427",
+          "#3d4045",
+          "#5a5e63",
+          "#7a7d83",
+          "#9b9fa4",
+          "#c1c4c8",
+          "#eeeef0"
+        ],
+        "hex": "#eef2f8"
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Carbon Gray",
+        "canonical": "oklch(43.9% 0.044 259.7)",
+        "tonalRamp": [
+          "#090b0f",
+          "#1c2432",
+          "#324057",
+          "#4f5e77",
+          "#6e7e98",
+          "#8f9fba",
+          "#b8c5d9",
+          "#ebeff5"
+        ],
+        "hex": "#44536b"
+      },
+      "paper-rule": {
+        "role": "neutral",
+        "displayName": "Ruled Line",
+        "canonical": "oklch(89.4% 0.015 251.2)",
+        "tonalRamp": [
+          "#0a0b0c",
+          "#212429",
+          "#3a4048",
+          "#585e66",
+          "#777e86",
+          "#989fa8",
+          "#bfc5cb",
+          "#edeff0"
+        ],
+        "hex": "#d5dde6"
+      },
+      "rule-strong": {
+        "role": "neutral",
+        "displayName": "Perforation Gray",
+        "canonical": "oklch(74.9% 0.030 246.6)",
+        "tonalRamp": [
+          "#090b0e",
+          "#1d252d",
+          "#33414f",
+          "#50606e",
+          "#6f7f8e",
+          "#90a1b0",
+          "#b9c6d2",
+          "#ebeff2"
+        ],
+        "hex": "#9fb0c0"
+      },
+      "field-rule": {
+        "role": "neutral",
+        "displayName": "Field Stroke",
+        "canonical": "oklch(58.3% 0.039 252.4)",
+        "tonalRamp": [
+          "#090b0e",
+          "#1b2530",
+          "#314154",
+          "#4e5f73",
+          "#6d7f94",
+          "#8ea0b6",
+          "#b8c6d6",
+          "#ebeff4"
+        ],
+        "hex": "#6b7d92"
+      },
+      "error": {
+        "role": "error",
+        "displayName": "Rejection Red",
+        "canonical": "oklch(50.0% 0.182 29.5)",
+        "tonalRamp": [
+          "#180504",
+          "#4e0000",
+          "#870000",
+          "#ad1a10",
+          "#d44536",
+          "#fb6957",
+          "#ffa292",
+          "#ffe6e0"
+        ],
+        "hex": "#b42318"
+      }
+    },
+    "typographyMeta": {
+      "wordmark": {
+        "displayName": "Wordmark",
+        "purpose": "GEOX in the masthead, lettered on the glass."
+      },
+      "display": {
+        "displayName": "Display (vinyl)",
+        "purpose": "The one hero headline, White Vinyl on glass, max 16ch, balanced wrap; 34px at 100% width on phones."
+      },
+      "headline": {
+        "displayName": "Headline (vinyl)",
+        "purpose": "Section headlines on the glass, max 20ch; 30px at 100% width on phones."
+      },
+      "numeral": {
+        "displayName": "Numeral (condensed)",
+        "purpose": "The placard score; the same condensed 800 tabular face sets every price and rank (84px stub, 48px list, 26px rank)."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Line-item heads on paper; 22px for price-list items."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Paragraph under each glass headline, Frosted Vinyl, max 56ch."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "FAQ answers, answer rows, input text, nav links."
+      },
+      "body-sm": {
+        "displayName": "Body Small",
+        "purpose": "Descriptions printed on sheets, Carbon Gray, max 60-62ch."
+      },
+      "action": {
+        "displayName": "Action",
+        "purpose": "Every button and the nav pill."
+      },
+      "label": {
+        "displayName": "Printed Label",
+        "purpose": "Uppercase. A sheet's printed heading and the placard band."
+      },
+      "field-label": {
+        "displayName": "Field Label",
+        "purpose": "Labels above inputs on the request slip."
+      },
+      "fine": {
+        "displayName": "Fine",
+        "purpose": "Reassurance and caption lines on glass; 13px stamps on paper."
+      },
+      "decal": {
+        "displayName": "Decal",
+        "purpose": "Uppercase. The door-hours footer line on the glass."
+      }
+    },
+    "shadows": [
+      {
+        "name": "paper-lift",
+        "value": "0 18px 40px rgba(2, 10, 18, 0.42)",
+        "purpose": "Every paper sheet at rest (CSS --lift)."
+      },
+      {
+        "name": "ticket-lift",
+        "value": "drop-shadow(0 18px 26px rgba(2, 10, 18, 0.42))",
+        "purpose": "filter on the work order, whose punched notches are cut by a mask that would clip a box-shadow."
+      },
+      {
+        "name": "press-on-lift",
+        "value": "0 34px 60px rgba(2, 10, 18, 0.5)",
+        "purpose": "Starting shadow of the placard press-on animation; settles into paper-lift."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "The one ease for every transition and keyframe (CSS --ease)."
+      },
+      {
+        "name": "glare",
+        "value": "2.6s ease 0.15s, once",
+        "purpose": "A white 7% band skewed -18deg crosses the first viewport once; removed under reduced motion."
+      },
+      {
+        "name": "press",
+        "value": "0.8s ease 0.25s, once",
+        "purpose": "Placard presses onto the glass from 8px higher and 3% larger; removed under reduced motion."
+      },
+      {
+        "name": "color-change",
+        "value": "0.2s",
+        "purpose": "Button background on hover."
+      },
+      {
+        "name": "disclosure-turn",
+        "value": "0.25s",
+        "purpose": "FAQ plus rotates 45deg into a cross when open."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "stack",
+        "value": "960px",
+        "purpose": "max-width: all two-column grids collapse to one; gutter 24px per side; ticket stub drops below."
+      },
+      {
+        "name": "phone",
+        "value": "560px",
+        "purpose": "max-width: placard becomes a strip between headline and lead; tape shrinks to 20px and flattens within 7deg; window inset 6px; gutter 16px per side."
+      }
+    ],
+    "fonts": [
+      {
+        "family": "Archivo",
+        "source": "site/public/fonts/archivo-latin.woff2, archivo-latin-ext.woff2",
+        "axes": {
+          "wght": "400 800",
+          "wdth": "62% 125%"
+        },
+        "display": "swap",
+        "note": "Self-hosted variable font; width is set with font-stretch in site/src/styles/geox.css."
+      }
+    ],
+    "sourceFiles": [
+      "site/src/styles/geox.css",
+      "site/src/pages/index.astro",
+      "site/src/pages/thanks.astro",
+      "site/public/favicon.svg"
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one solid navy action on a sheet.",
+      "html": "<button class=\"ds-btn-primary\">Check my visibility for free</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; min-height: 54px; padding: 0 26px; border: 0; border-radius: 999px; font-family: Archivo, system-ui, sans-serif; font-size: 17px; font-weight: 600; text-decoration: none; cursor: pointer; transition: background-color 0.2s cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-primary { background: var(--navy, #0d2b6b); color: var(--paper, #ffffff); } .ds-btn-primary:hover { background: #163c8f; } .ds-btn-primary:focus-visible { outline: 3px solid var(--navy, #0d2b6b); outline-offset: 3px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary offers on paper: transparent pill with a 2px inset navy ring.",
+      "html": "<button class=\"ds-btn-ghost\">Get Beat Them for $19</button>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; justify-content: center; min-height: 54px; padding: 0 26px; border: 0; border-radius: 999px; font-family: Archivo, system-ui, sans-serif; font-size: 17px; font-weight: 600; text-decoration: none; cursor: pointer; transition: background-color 0.2s cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-ghost { background: transparent; color: var(--navy, #0d2b6b); box-shadow: inset 0 0 0 2px var(--navy, #0d2b6b); } .ds-btn-ghost:hover { background: #eef2f8; } .ds-btn-ghost:focus-visible { outline: 3px solid var(--navy, #0d2b6b); outline-offset: 3px; }"
+    },
+    {
+      "name": "On-Glass Button",
+      "kind": "button",
+      "refersTo": "button-on-glass",
+      "description": "White vinyl pill for an action standing on open glass with no sheet behind it.",
+      "html": "<div class=\"ds-onglass-pane\"><a class=\"ds-btn-onglass\" href=\"#\">Check my visibility for free</a><p class=\"ds-onglass-fine\">No account or credit card needed.</p></div>",
+      "css": ".ds-onglass-pane { padding: 40px 32px; border-radius: 6px; background: radial-gradient(ellipse 60% 40% at 88% 0%, var(--lamp, rgba(255, 196, 120, 0.09)), transparent 70%), linear-gradient(115deg, var(--glass-hi, #16394f) 0%, var(--glass, #0f2a3f) 42%, var(--glass-lo, #0b2030) 100%); color: var(--vinyl, #f4f7f9); font-family: Archivo, system-ui, sans-serif; } .ds-onglass-pane { text-align: center; } .ds-btn-onglass { display: inline-flex; align-items: center; justify-content: center; min-height: 54px; padding: 0 26px; border: 0; border-radius: 999px; font-family: Archivo, system-ui, sans-serif; font-size: 17px; font-weight: 600; text-decoration: none; cursor: pointer; transition: background-color 0.2s cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-onglass { background: var(--vinyl, #f4f7f9); color: var(--frame, #08151f); } .ds-btn-onglass:hover { background: #ffffff; } .ds-btn-onglass:focus-visible { outline: 3px solid var(--gold, #f2c230); outline-offset: 3px; } .ds-onglass-fine { margin: 14px 0 0; font-size: 14px; color: var(--vinyl-2, #b8cad8); }"
+    },
+    {
+      "name": "Masthead Navigation",
+      "kind": "nav",
+      "refersTo": "nav-pill",
+      "description": "Wordmark on the glass, a text link, and the gold Free check pill.",
+      "html": "<div class=\"ds-mast-pane\"><header class=\"ds-mast\"><a class=\"ds-wordmark\" href=\"#\">GEOX</a><nav class=\"ds-mast-nav\"><a href=\"#\">Pricing</a><a class=\"ds-pill\" href=\"#\">Free check</a></nav></header></div>",
+      "css": ".ds-mast-pane { padding: 40px 32px; border-radius: 6px; background: radial-gradient(ellipse 60% 40% at 88% 0%, var(--lamp, rgba(255, 196, 120, 0.09)), transparent 70%), linear-gradient(115deg, var(--glass-hi, #16394f) 0%, var(--glass, #0f2a3f) 42%, var(--glass-lo, #0b2030) 100%); color: var(--vinyl, #f4f7f9); font-family: Archivo, system-ui, sans-serif; } .ds-mast-pane { padding: 0 32px; } .ds-mast { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 84px; border-bottom: 1px solid var(--vinyl-rule, rgba(184, 202, 216, 0.28)); } .ds-wordmark { color: var(--vinyl, #f4f7f9); font-weight: 800; font-stretch: 125%; font-size: 26px; letter-spacing: -0.01em; text-decoration: none; } .ds-mast-nav { display: flex; align-items: center; gap: 28px; font-size: 17px; } .ds-mast-nav a { color: var(--vinyl, #f4f7f9); text-decoration: none; text-underline-offset: 0.22em; } .ds-mast-nav a:hover { text-decoration: underline; } .ds-mast-nav a:focus-visible { outline: 3px solid var(--gold, #f2c230); outline-offset: 3px; } .ds-mast-nav .ds-pill { display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; background: var(--gold, #f2c230); color: var(--frame, #08151f); font-weight: 600; } .ds-mast-nav .ds-pill:hover { text-decoration: none; background: #f6d25e; }"
+    },
+    {
+      "name": "Request Slip",
+      "kind": "input",
+      "refersTo": "input-field",
+      "description": "The free-check form as a taped paper slip: two fields and the primary button.",
+      "html": "<div class=\"ds-slip-pane\"><form class=\"ds-slip\" onsubmit=\"return false\"><span class=\"ds-slip-tape\" aria-hidden=\"true\"></span><p class=\"ds-slip-title\">Free check request</p><label>Your website<input placeholder=\"yourbrand.com\" /></label><label>Email<input type=\"email\" placeholder=\"you@yourbrand.com\" /></label><button class=\"ds-slip-btn\" type=\"submit\">Check my visibility for free</button></form></div>",
+      "css": ".ds-slip-pane { padding: 40px 32px; border-radius: 6px; background: radial-gradient(ellipse 60% 40% at 88% 0%, var(--lamp, rgba(255, 196, 120, 0.09)), transparent 70%), linear-gradient(115deg, var(--glass-hi, #16394f) 0%, var(--glass, #0f2a3f) 42%, var(--glass-lo, #0b2030) 100%); color: var(--vinyl, #f4f7f9); font-family: Archivo, system-ui, sans-serif; } .ds-slip { position: relative; background: var(--paper, #ffffff); color: var(--navy, #0d2b6b); border-radius: 2px; box-shadow: 0 18px 40px rgba(2, 10, 18, 0.42); max-width: 640px; padding: 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px 18px; } .ds-slip-tape { position: absolute; z-index: 1; height: 26px; width: 104px; left: -24px; top: -9px; transform: rotate(-31deg); background: var(--tape, rgba(242, 194, 48, 0.62)); pointer-events: none; } .ds-slip-title { grid-column: 1 / -1; margin: 0; font-size: 15px; font-weight: 700; font-stretch: 112%; text-transform: uppercase; letter-spacing: 0.06em; } .ds-slip label { display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; } .ds-slip input { height: 52px; padding: 0 14px; border: 1.5px solid var(--field-rule, #6b7d92); border-radius: 4px; background: var(--paper, #ffffff); color: var(--navy, #0d2b6b); font-family: Archivo, system-ui, sans-serif; font-size: 17px; font-weight: 400; } .ds-slip input::placeholder { color: #5b6a7f; } .ds-slip input:focus-visible { border-color: var(--navy, #0d2b6b); outline: 2px solid var(--navy, #0d2b6b); outline-offset: 1px; } .ds-slip input:user-invalid { border-color: #b42318; } .ds-slip-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 54px; padding: 0 26px; border: 0; border-radius: 999px; font-family: Archivo, system-ui, sans-serif; font-size: 17px; font-weight: 600; text-decoration: none; cursor: pointer; transition: background-color 0.2s cubic-bezier(0.16, 1, 0.3, 1); } .ds-slip-btn { grid-column: 1 / -1; background: var(--navy, #0d2b6b); color: var(--paper, #ffffff); } .ds-slip-btn:hover { background: #163c8f; } .ds-slip-btn:focus-visible { outline: 3px solid var(--navy, #0d2b6b); outline-offset: 3px; }"
+    },
+    {
+      "name": "Grade Placard",
+      "kind": "card",
+      "refersTo": "placard-band",
+      "description": "The inspection grade card: navy band, condensed score, wide verdict, per-engine scores, example stamp.",
+      "html": "<div class=\"ds-placard-pane\"><figure class=\"ds-placard\"><span class=\"ds-placard-tape-a\" aria-hidden=\"true\"></span><span class=\"ds-placard-tape-b\" aria-hidden=\"true\"></span><div class=\"ds-placard-band\"><span>AI visibility</span><span>Maple &amp; Main</span></div><div class=\"ds-placard-body\"><p class=\"ds-grade\">41<small>/100</small></p><p class=\"ds-verdict\">Weak</p><dl class=\"ds-engines\"><dt>GPT-5.4 Nano</dt><dd>34</dd><dt>Gemini 3 Flash</dt><dd>48</dd></dl><p class=\"ds-stamp\">Example · illustrative bakery and numbers</p></div></figure></div>",
+      "css": ".ds-placard-pane { padding: 40px 32px; border-radius: 6px; background: radial-gradient(ellipse 60% 40% at 88% 0%, var(--lamp, rgba(255, 196, 120, 0.09)), transparent 70%), linear-gradient(115deg, var(--glass-hi, #16394f) 0%, var(--glass, #0f2a3f) 42%, var(--glass-lo, #0b2030) 100%); color: var(--vinyl, #f4f7f9); font-family: Archivo, system-ui, sans-serif; } .ds-placard { position: relative; background: var(--paper, #ffffff); color: var(--navy, #0d2b6b); border-radius: 2px; box-shadow: 0 18px 40px rgba(2, 10, 18, 0.42); margin: 0; max-width: 380px; transform: rotate(1.4deg); } .ds-placard-tape-a { position: absolute; z-index: 1; height: 26px; width: 88px; left: -20px; top: -8px; transform: rotate(-24deg); background: var(--tape, rgba(242, 194, 48, 0.62)); pointer-events: none; } .ds-placard-tape-b { position: absolute; z-index: 1; height: 26px; width: 66px; right: -10px; top: -14px; transform: rotate(11deg); background: var(--tape, rgba(242, 194, 48, 0.62)); pointer-events: none; } .ds-placard-band { display: flex; justify-content: space-between; gap: 12px; padding: 14px 22px; background: var(--navy, #0d2b6b); color: var(--paper, #ffffff); font-weight: 800; font-stretch: 125%; font-size: 15px; letter-spacing: 0.04em; text-transform: uppercase; } .ds-placard-body { padding: 22px 24px 24px; text-align: center; } .ds-placard-body p, .ds-engines, .ds-engines dd { margin: 0; } .ds-grade { font-weight: 800; font-stretch: 62%; font-size: 150px; line-height: 0.86; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; } .ds-grade small { font-size: 0.22em; font-stretch: 100%; letter-spacing: 0; color: var(--ink-2, #44536b); } .ds-verdict { margin-top: 10px !important; font-weight: 800; font-stretch: 125%; font-size: 22px; letter-spacing: 0.06em; text-transform: uppercase; } .ds-engines { margin-top: 18px !important; padding-top: 14px; border-top: 2px solid var(--navy, #0d2b6b); display: grid; grid-template-columns: 1fr auto; gap: 8px 16px; text-align: left; font-size: 16px; } .ds-engines dd { font-weight: 700; font-variant-numeric: tabular-nums; } .ds-stamp { margin-top: 16px !important; text-align: left; font-size: 13px; color: var(--ink-2, #44536b); }"
+    },
+    {
+      "name": "Answer Printout",
+      "kind": "custom",
+      "refersTo": "verdict-row",
+      "description": "A printed AI answer slip: question, ranked brands with domains, and the navy verdict row naming the missing brand.",
+      "html": "<div class=\"ds-print-pane\"><figure class=\"ds-print\"><span class=\"ds-print-tape\" aria-hidden=\"true\"></span><div class=\"ds-print-head\"><span>Buyer question</span><span>Example answer</span></div><q>Which bakeries make the best custom birthday cakes near me?</q><ol><li><b>1</b><span>Sugar Street Bakery</span><span class=\"ds-print-muted\">sugarstreet.example</span></li><li><b>2</b><span>The Flour Room</span><span class=\"ds-print-muted\">flourroom.example</span></li></ol><p class=\"ds-missing\"><span>Maple &amp; Main Bakery</span><span>not mentioned</span></p></figure></div>",
+      "css": ".ds-print-pane { padding: 40px 32px; border-radius: 6px; background: radial-gradient(ellipse 60% 40% at 88% 0%, var(--lamp, rgba(255, 196, 120, 0.09)), transparent 70%), linear-gradient(115deg, var(--glass-hi, #16394f) 0%, var(--glass, #0f2a3f) 42%, var(--glass-lo, #0b2030) 100%); color: var(--vinyl, #f4f7f9); font-family: Archivo, system-ui, sans-serif; } .ds-print { position: relative; background: var(--paper, #ffffff); color: var(--navy, #0d2b6b); border-radius: 2px; box-shadow: 0 18px 40px rgba(2, 10, 18, 0.42); margin: 0; max-width: 520px; padding: 26px 26px 0; transform: rotate(-0.8deg); } .ds-print-tape { position: absolute; z-index: 1; height: 26px; width: 70px; right: 34px; top: -13px; transform: rotate(-7deg); background: var(--tape, rgba(242, 194, 48, 0.62)); pointer-events: none; } .ds-print-head { display: flex; justify-content: space-between; gap: 12px; padding-bottom: 12px; border-bottom: 1px dashed var(--paper-rule, #d5dde6); font-size: 13px; color: var(--ink-2, #44536b); } .ds-print q { display: block; margin-top: 16px; font-size: 18px; font-weight: 600; line-height: 1.35; quotes: \"\\201C\" \"\\201D\"; } .ds-print ol { margin: 16px 0 0; padding: 0; list-style: none; } .ds-print li { display: grid; grid-template-columns: 34px 1fr auto; align-items: baseline; gap: 10px; padding: 9px 0; border-top: 1px solid var(--paper-rule, #d5dde6); font-size: 17px; } .ds-print li b { font-weight: 800; font-stretch: 62%; font-size: 26px; line-height: 1; } .ds-print-muted { font-size: 13px; color: var(--ink-2, #44536b); } .ds-missing { display: flex; justify-content: space-between; gap: 12px; margin: 14px -26px 0; padding: 14px 26px; background: var(--navy, #0d2b6b); color: var(--paper, #ffffff); font-weight: 700; } .ds-missing span:last-child { font-weight: 400; color: #c9d6ee; }"
+    },
+    {
+      "name": "Repair Work Order",
+      "kind": "custom",
+      "refersTo": "paper-sheet",
+      "description": "Wide work order with line items and a notched tear-off stub carrying the price.",
+      "html": "<div class=\"ds-ticket-pane\"><div class=\"ds-ticket-wrap\"><span class=\"ds-ticket-tape\" aria-hidden=\"true\"></span><div class=\"ds-ticket\"><div class=\"ds-ticket-main\"><p class=\"ds-ticket-head\">Repair report</p><div class=\"ds-ticket-item\"><h3>See the answer behind each finding</h3><p>Read the buyer’s question, see which brands the model named first and follow the links it cited.</p></div></div><p class=\"ds-ticket-stub\"><span class=\"ds-ticket-amount\">$9</span><span>once</span></p></div></div></div>",
+      "css": ".ds-ticket-pane { padding: 40px 32px; border-radius: 6px; background: radial-gradient(ellipse 60% 40% at 88% 0%, var(--lamp, rgba(255, 196, 120, 0.09)), transparent 70%), linear-gradient(115deg, var(--glass-hi, #16394f) 0%, var(--glass, #0f2a3f) 42%, var(--glass-lo, #0b2030) 100%); color: var(--vinyl, #f4f7f9); font-family: Archivo, system-ui, sans-serif; } .ds-ticket-wrap { position: relative; filter: drop-shadow(0 18px 26px rgba(2, 10, 18, 0.42)); } .ds-ticket-tape { position: absolute; z-index: 1; height: 26px; width: 110px; left: -26px; top: -8px; transform: rotate(-17deg); background: var(--tape, rgba(242, 194, 48, 0.62)); pointer-events: none; } .ds-ticket { --stub: 168px; display: grid; grid-template-columns: minmax(0, 1fr) var(--stub); background: var(--paper, #ffffff); color: var(--navy, #0d2b6b); border-radius: 2px; -webkit-mask: radial-gradient(circle 12px at calc(100% - var(--stub)) 0, #0000 97%, #000) top / 100% 51% no-repeat, radial-gradient(circle 12px at calc(100% - var(--stub)) 100%, #0000 97%, #000) bottom / 100% 51% no-repeat; mask: radial-gradient(circle 12px at calc(100% - var(--stub)) 0, #0000 97%, #000) top / 100% 51% no-repeat, radial-gradient(circle 12px at calc(100% - var(--stub)) 100%, #0000 97%, #000) bottom / 100% 51% no-repeat; } .ds-ticket-main { padding: 26px 32px 10px; } .ds-ticket-head { margin: 0; font-weight: 800; font-stretch: 125%; font-size: 15px; letter-spacing: 0.05em; text-transform: uppercase; } .ds-ticket-item { display: grid; grid-template-columns: 32% minmax(0, 1fr); gap: 28px; margin-top: 16px; padding: 22px 0; border-top: 1px solid var(--paper-rule, #d5dde6); } .ds-ticket-item h3 { margin: 0; font-size: 20px; font-weight: 700; font-stretch: 104%; line-height: 1.2; letter-spacing: -0.01em; } .ds-ticket-item p { margin: 0; font-size: 16px; line-height: 1.5; color: var(--ink-2, #44536b); } .ds-ticket-stub { margin: 0; border-left: 2px dashed #9fb0c0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 24px 12px; } .ds-ticket-amount { font-weight: 800; font-stretch: 62%; font-size: 84px; line-height: 0.9; font-variant-numeric: tabular-nums; } .ds-ticket-stub span:last-child { font-weight: 800; font-stretch: 125%; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-2, #44536b); }"
+    },
+    {
+      "name": "Price List Row",
+      "kind": "custom",
+      "refersTo": "paper-sheet",
+      "description": "A row of the printed price list: item name, dotted leader, condensed price, description and its button.",
+      "html": "<div class=\"ds-prices-pane\"><div class=\"ds-prices\"><span class=\"ds-prices-tape\" aria-hidden=\"true\"></span><p class=\"ds-prices-head\">Price list</p><div class=\"ds-price\"><div class=\"ds-price-line\"><h3>Your AI visibility repair report</h3><span class=\"ds-dots\" aria-hidden=\"true\"></span><span class=\"ds-amount\">$9</span></div><p><strong>$9 once. One brand. No subscription.</strong> The answers and sources behind your score and a ready-to-use editing brief.</p><a class=\"ds-price-btn\" href=\"#\">Get my repair report for $9</a></div></div></div>",
+      "css": ".ds-prices-pane { padding: 40px 32px; border-radius: 6px; background: radial-gradient(ellipse 60% 40% at 88% 0%, var(--lamp, rgba(255, 196, 120, 0.09)), transparent 70%), linear-gradient(115deg, var(--glass-hi, #16394f) 0%, var(--glass, #0f2a3f) 42%, var(--glass-lo, #0b2030) 100%); color: var(--vinyl, #f4f7f9); font-family: Archivo, system-ui, sans-serif; } .ds-prices { position: relative; background: var(--paper, #ffffff); color: var(--navy, #0d2b6b); border-radius: 2px; box-shadow: 0 18px 40px rgba(2, 10, 18, 0.42); max-width: 920px; padding: 26px 0 8px; } .ds-prices-tape { position: absolute; z-index: 1; height: 26px; width: 78px; right: -18px; top: -6px; transform: rotate(-33deg); background: var(--tape, rgba(242, 194, 48, 0.62)); pointer-events: none; } .ds-prices-head { margin: 0; padding: 0 28px 8px; font-weight: 800; font-stretch: 125%; font-size: 15px; letter-spacing: 0.05em; text-transform: uppercase; } .ds-price { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px 24px; align-items: center; padding: 24px 28px; } .ds-price-line { grid-column: 1 / -1; display: flex; align-items: last baseline; gap: 12px; } .ds-price-line h3 { margin: 0; font-size: 22px; font-weight: 700; font-stretch: 104%; letter-spacing: -0.01em; } .ds-dots { flex: 1; min-width: 24px; border-bottom: 3px dotted #9fb0c0; transform: translateY(-6px); } .ds-amount { font-weight: 800; font-stretch: 62%; font-size: 48px; line-height: 1; font-variant-numeric: tabular-nums; } .ds-price p { margin: 0; max-width: 60ch; font-size: 16px; line-height: 1.5; color: var(--ink-2, #44536b); } .ds-price p strong { color: var(--navy, #0d2b6b); } .ds-price-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 54px; padding: 0 26px; border: 0; border-radius: 999px; font-family: Archivo, system-ui, sans-serif; font-size: 17px; font-weight: 600; text-decoration: none; cursor: pointer; transition: background-color 0.2s cubic-bezier(0.16, 1, 0.3, 1); } .ds-price-btn { background: var(--navy, #0d2b6b); color: var(--paper, #ffffff); } .ds-price-btn:hover { background: #163c8f; } .ds-price-btn:focus-visible { outline: 3px solid var(--navy, #0d2b6b); outline-offset: 3px; }"
+    },
+    {
+      "name": "FAQ Disclosure",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Questions lettered on the glass between vinyl hairlines; the plus turns into a cross when open.",
+      "html": "<div class=\"ds-faq-pane\"><details class=\"ds-faq\" open><summary>Can I just check my score?<svg width=\"22\" height=\"22\" viewBox=\"0 0 22 22\" aria-hidden=\"true\"><path d=\"M11 3v16M3 11h16\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" /></svg></summary><p>Yes. The visibility check is free. You decide whether to buy the repair report after you see your score.</p></details><details class=\"ds-faq\"><summary>Will you make the changes for me?<svg width=\"22\" height=\"22\" viewBox=\"0 0 22 22\" aria-hidden=\"true\"><path d=\"M11 3v16M3 11h16\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" /></svg></summary><p>You or your developer apply the edits.</p></details></div>",
+      "css": ".ds-faq-pane { padding: 40px 32px; border-radius: 6px; background: radial-gradient(ellipse 60% 40% at 88% 0%, var(--lamp, rgba(255, 196, 120, 0.09)), transparent 70%), linear-gradient(115deg, var(--glass-hi, #16394f) 0%, var(--glass, #0f2a3f) 42%, var(--glass-lo, #0b2030) 100%); color: var(--vinyl, #f4f7f9); font-family: Archivo, system-ui, sans-serif; } .ds-faq { border-top: 1px solid var(--vinyl-rule, rgba(184, 202, 216, 0.28)); } .ds-faq:last-child { border-bottom: 1px solid var(--vinyl-rule, rgba(184, 202, 216, 0.28)); } .ds-faq summary { min-height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 16px; font-size: 19px; font-weight: 600; cursor: pointer; list-style: none; } .ds-faq summary::-webkit-details-marker { display: none; } .ds-faq summary:focus-visible { outline: 3px solid var(--gold, #f2c230); outline-offset: 3px; } .ds-faq summary svg { flex: none; transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1); } .ds-faq[open] summary svg { transform: rotate(45deg); } .ds-faq p { margin: 0; padding-bottom: 22px; max-width: 62ch; font-size: 17px; line-height: 1.5; color: var(--vinyl-2, #b8cad8); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Shop Window After Closing",
+    "overview": "The page is one pane of night window glass, seen from inside the shop after the lights are off. Deep blue-green glass fills every region inside a thin dark shopfront frame, lit from the top right by one lamp left on in the back. Headlines are white vinyl lettering applied straight to the glass. Everything a visitor reads closely or acts on is paper posted on that glass with a strip of gold tape: a grade placard, a request slip, a printed answer slip, a repair work order with a tear-off price stub, a price list with leader dots, a receipt.\n\nDensity is split by material. The glass carries one headline, one or two leads and a lot of dark space per section; the paper carries the detail at reading size, in navy ink. One typeface does all the work: Archivo, a variable grotesque, stretched wide for printed bands and labels and squeezed condensed for scores and prices, so the hierarchy comes from the width axis more than from a second family.\n\nThe confirmed rejection is the split SaaS hero with a dashboard screenshot and a row of feature cards. Nothing here is a generic card. Each sheet is a specific printed object with one job, and the score is posted the way an inspection grade card is posted in a shop window, readable from the street.",
+    "keyCharacteristics": [
+      "One glass surface owns every region; light appears only as paper posted on it.",
+      "Two inks: white vinyl on glass, navy on paper.",
+      "Archivo variable across widths 62–125: condensed numerals, wide printed labels.",
+      "Square-cut paper (2px corners) lifted by one soft shadow and held by gold tape.",
+      "Pill buttons in three dresses: navy on paper, gold in the masthead, vinyl on open glass.",
+      "Motion plays once on arrival: a glare crosses the glass and the placard presses on; both are off under reduced motion."
+    ],
+    "rules": [
+      {
+        "name": "The Glass Owns Every Region Rule",
+        "body": "No section switches to a light background. Every region sits on the glass gradient; light surfaces exist only as paper sheets posted on it.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Inks Rule",
+        "body": "On glass, text is White Vinyl or Frosted Vinyl. On paper, text is Placard Navy or Carbon Gray. Navy never letters the glass, and vinyl never prints on paper.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tape Gold Rule",
+        "body": "Gold is tape and one glass-side signal (the masthead pill, the focus ring, selection). It never fills a sheet, never colors text, and never appears inside paper; inside paper the focus ring turns navy.",
+        "section": "colors"
+      },
+      {
+        "name": "The Width Is the Hierarchy Rule",
+        "body": "Archivo's width axis carries role: 62% for numbers that score, rank or price; 104–108% for headlines and titles; 100% for reading text; 125% for the wordmark, printed labels, bands and the decal. Every number that scores or prices is condensed 800 with tabular figures.",
+        "section": "typography"
+      },
+      {
+        "name": "The Wide Caps Rule",
+        "body": "Uppercase appears only at 112–125% width with 0.04–0.1em tracking, and only on printed labels: a sheet's heading, the placard band, the verdict word, the stub caption, the footer decal. Headlines and reading text are never set in capitals.",
+        "section": "typography"
+      },
+      {
+        "name": "The One Sheet per Section Rule",
+        "body": "A section holds one headline and its lead on the glass and at most one paper sheet. The glass between sections stays empty except for the hairline that divides them.",
+        "section": "layout"
+      },
+      {
+        "name": "The Paper Lifts, Glass Stays Flat Rule",
+        "body": "Only paper casts a shadow, and every sheet casts the same one. Lettering on the glass never gets a shadow, glow or outline, and no shadow is a hard offset.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Square-Cut Paper Rule",
+        "body": "Sheets keep 2px corners and never round further; actions are always full pills. Nothing sits between those two shapes except inputs (4px) and the window itself (6px).",
+        "section": "shapes"
+      },
+      {
+        "name": "The Tape Rule",
+        "body": "One strip of Gold Tape holds each sheet; the grade placard, the heaviest card, takes two. Each strip is 26px tall and cut to its own length (66–110px) and angle (between −33° and +11°), and overhangs a corner or the top edge by 6–15px. On phones the strips shrink to 20px tall and 52–70px long and flatten to within ±7°, so none reaches the lettering around the sheet. Tape belongs on the sheet's edge and never crosses copy on the glass.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "Do put every light surface on paper: Posted Paper, 2px corners, the paper lift (0 18px 40px rgba(2, 10, 18, 0.42)), and its own strip of Gold Tape.",
+      "Do letter headlines straight onto the glass in White Vinyl, Archivo 800 at 108% width with tight tracking (−0.03em display, −0.028em headline) and balanced wrapping.",
+      "Do set every score, rank and price in Archivo 800 at 62% width with tabular figures.",
+      "Do cut each tape strip to its own length (66–110px) and angle (−33° to +11°) so no two sheets are taped alike, and flatten it on phones (20px tall, within ±7°) so it stays off nearby copy.",
+      "Do switch the focus ring from Tape Gold on glass to Placard Navy inside paper, 3px with a 3px offset.",
+      "Do keep sheets that hold inputs, buttons or prices square; tilt only the evidence sheets (placard, printout), by 1.5° or less.",
+      "Do play motion once and remove it under reduced motion."
+    ],
+    "donts": [
+      "Don't build the split SaaS hero with a dashboard screenshot and a row of feature cards.",
+      "Don't give any section a light full-width background; light exists only as paper on the glass.",
+      "Don't add navy bands to sheets other than the grade placard's header and an answer slip's verdict row; other sheets print their heading as navy text.",
+      "Don't use gold for text, fills inside paper, or anything other than tape, the masthead pill, the focus ring on glass and selection.",
+      "Don't round sheets past 2px or square off buttons.",
+      "Don't put shadows, glows or outlines on lettering on the glass, and don't use hard offset shadows anywhere.",
+      "Don't let tape cross copy on the glass.",
+      "Don't loop any animation."
+    ]
+  }
+}

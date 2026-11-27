@@ -163,8 +163,8 @@ function buildJsonLd(
       "datePublished": meta.reportDate,
       "isPartOf": {
         "@type": "WebSite",
-        "name": "AICW AI Mentions",
-        "url": "https://aichatwatch.com"
+        "name": "GEOX",
+        "url": "/"
       },
       "mainEntity": { "@id": `${absoluteCanonicalUrl}#website` }
     },
@@ -854,7 +854,7 @@ function generateSourceIntroHtml(
     introText += ` when they were asked the following ${questions.length} question${questions.length !== 1 ? 's' : ''}: ${questionsText}`;
   }
 
-  introText += ` on <strong>${formattedDate}</strong> by <a href="https://aichatwatch.com/aicw-ai-mentions/" class="text-indigo-600 hover:underline">AICW AI Mentions</a>.`;
+  introText += ` on <strong>${formattedDate}</strong> by <a href="/" class="text-indigo-600 hover:underline">GEOX</a>.`;
 
   if (brandsText) {
     introText += ` This source is referenced for brands: ${brandsText}.`;
