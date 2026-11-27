@@ -258,7 +258,8 @@ async function render(data) {
     isAggregate: true,
     questions: QUESTIONS
   });
-  return { ok, html: ok ? await fs.readFile(path.join(outDir, 'index.html'), 'utf8') : '' };
+  const read = name => fs.readFile(path.join(outDir, name), 'utf8').catch(() => null);
+  return { ok, html: ok ? await read('index.html') : '', free: await read('free.html') };
 }
 
 function compiled(ctx, extra = {}) {
@@ -303,6 +304,23 @@ test('an empty scan still generates a report with the absent finding', async () 
   assert.match(html, /does not appear in AI answers/);
   assert.doesNotMatch(html, /id="geox-score"/);
   assert.doesNotMatch(html, /\{\{STATIC_/);
+});
+
+test('free.html shows the score and leaks nothing the paid report sells', async () => {
+  const { free } = await render(compiled(weakContext(), { score: SCORE, tier: 'beat' }));
+  assert.match(free, /id="geox-score"/);
+  assert.match(free, /id="geox-free-locked"/);
+  assert.match(free, /\d+ findings?/);
+  assert.match(free, /reply to the email/);
+  for (const paid of [/HubSpot/, /reddit\.com/, /geox-repair-prompt/, /geox-solution/, /geox-beat/, /What is the best CRM/]) {
+    assert.doesNotMatch(free, paid);
+  }
+});
+
+test('no score means no free.html', async () => {
+  const { ok, free } = await render(compiled(weakContext()));
+  assert.equal(ok, true);
+  assert.equal(free, null);
 });
 
 test.after(() => fs.rm(TMP, { recursive: true, force: true }));

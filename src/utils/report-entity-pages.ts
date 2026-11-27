@@ -184,8 +184,8 @@ function buildJsonLd(
       "datePublished": meta.reportDate,
       "isPartOf": {
         "@type": "WebSite",
-        "name": "AICW AI Mentions",
-        "url": "https://aichatwatch.com"
+        "name": "GEOX",
+        "url": "/"
       },
       "mainEntity": { "@id": `${absoluteCanonicalUrl}#entity` }
     },
@@ -808,7 +808,7 @@ function generateEntityIntroHtml(
     introText += ` when they were asked the following ${questions.length} question${questions.length !== 1 ? 's' : ''}: ${questionsText}`;
   }
 
-  introText += ` on <strong>${formattedDate}</strong> by <a href="https://aichatwatch.com/aicw-ai-mentions/" class="text-indigo-600 hover:underline">AICW AI Mentions</a>.`;
+  introText += ` on <strong>${formattedDate}</strong> by <a href="/" class="text-indigo-600 hover:underline">GEOX</a>.`;
 
   return `
         <section class="entity-intro bg-white dark:bg-gray-800 rounded-lg shadow p-5 mb-4">

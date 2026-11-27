@@ -1,0 +1,197 @@
+---
+import '../styles/geox.css';
+
+const faqs = [
+  ['Can I just check my score?', 'Yes. The visibility check is free. You decide whether to buy the repair report after you see your score.'],
+  ['What if AI already recommends my brand?', 'Check where you appear and who gets the citation. A recommendation that links to a directory and one that links to your own product page give buyers different places to go. The report lets you see that difference.'],
+  ['Will you make the changes for me?', 'You or your developer apply the edits. If you use an AI editor, the report includes a prompt with your brand’s findings and instructions for showing exactly what it changed.'],
+  ['Will these edits get me recommended?', 'AI answers vary by question, model and date. The report gives you changes grounded in the answers we collected and a way to check what happens next. The scan uses model APIs, so a buyer’s chat may show a different answer.'],
+];
+
+// ponytail: illustrative example on purpose (the owner asked not to show a real client); .example domains are reserved and resolve nowhere.
+const answer = [
+  ['Sugar Street Bakery', 'sugarstreet.example'],
+  ['The Flour Room', 'flourroom.example'],
+  ['Crumb & Co.', 'crumbco.example'],
+  ['Butterfield Cakes', 'butterfield.example'],
+];
+---
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#08151f" />
+  <title>GEOX: does AI recommend your business?</title>
+  <meta name="description" content="Check your brand’s AI visibility for free. Get a score based on what the models actually said, and a $9 repair report if you want to know what to change." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preload" href="/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin />
+</head>
+<body>
+  <div class="window">
+    <header class="wrap mast">
+      <a class="wordmark" href="/">GEOX</a>
+      <nav aria-label="Main navigation">
+        <a href="#pricing">Pricing</a>
+        <a class="pill" href="#check" data-plan="free">Free check</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="wrap hero" aria-labelledby="headline">
+        <div class="hero-copy">
+          <h1 id="headline" class="vinyl-h1">When buyers ask AI for a recommendation, does your brand come up?</h1>
+          <p class="lead">Check your brand’s AI visibility for free. Get a score based on what the models actually said. If you want to know what to change on your website, get the repair report for $9.</p>
+
+          <form id="check" class="paper slip" method="post" action="/api/request">
+            <span class="tape slip-t" aria-hidden="true"></span>
+            <p class="slip-title" id="slip-title">Free check request</p>
+            <label>Your website
+              <input name="domain" required maxlength="253" pattern=".*\..*" placeholder="yourbrand.com" inputmode="url" autocomplete="url" title="A website address, like yourbrand.com" />
+            </label>
+            <label>Email
+              <input name="email" type="email" required maxlength="254" placeholder="you@yourbrand.com" autocomplete="email" />
+            </label>
+            <input type="hidden" name="plan" value="free" />
+            <div class="hp" aria-hidden="true"><label>Leave this empty <input name="website" tabindex="-1" autocomplete="off" /></label></div>
+            <button class="btn" type="submit">Check my visibility for free</button>
+          </form>
+          <p class="fine">No account or credit card needed. We’ll email you a link to your score within a few hours.</p>
+        </div>
+
+        <figure class="paper placard" aria-label="Example score card for an illustrative bakery">
+          <span class="tape placard-a" aria-hidden="true"></span>
+          <span class="tape placard-b" aria-hidden="true"></span>
+          <div class="placard-band"><span>AI visibility</span><span>Maple &amp; Main</span></div>
+          <div class="placard-body">
+            <p class="grade">41<small>/100</small></p>
+            <p class="verdict">Weak</p>
+            <dl class="engines">
+              <dt>GPT-5.4 Nano</dt><dd>34</dd>
+              <dt>Gemini 3 Flash</dt><dd>48</dd>
+            </dl>
+            <p class="stamp muted">Example · illustrative bakery and numbers</p>
+          </div>
+        </figure>
+      </section>
+
+      <section class="section" aria-labelledby="free">
+        <div class="wrap split">
+          <div>
+            <h2 id="free" class="vinyl-h2">See where you stand for free</h2>
+            <p class="lead">We ask AI models questions a buyer might ask when looking for a business like yours. Your free score reflects how often your brand comes up, how early it appears in the answer and which sources the models cite.</p>
+            <p class="lead"><strong>The score is yours to keep. You only pay if you want a plan for improving it.</strong></p>
+          </div>
+          <div>
+            <figure class="paper printout" aria-label="Example AI answer for an illustrative bakery">
+              <span class="tape print-t" aria-hidden="true"></span>
+              <div class="printout-head muted"><span>Buyer question</span><span>Example answer</span></div>
+              <q>Which bakeries make the best custom birthday cakes near me?</q>
+              <ol>
+                {answer.map(([name, site], i) => (
+                  <li><b>{i + 1}</b><span>{name}</span><span class="muted">{site}</span></li>
+                ))}
+              </ol>
+              <p class="missing"><span>Maple &amp; Main Bakery</span><span>not mentioned</span></p>
+            </figure>
+            <p class="fine">Illustrative example; the bakeries are made up. Asked the same thing with the neighborhood named, the model could list Maple &amp; Main first. Your report shows where that happens for your business.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="repair">
+        <div class="wrap">
+          <h2 id="repair" class="vinyl-h2">Know which page to edit and what to put on it</h2>
+          <p class="lead">A model can mention your brand and still send the buyer to someone else’s website. It can recommend you for one question and leave you out of the next. The $9 repair report shows you where that happened and gives you a specific edit to start with.</p>
+
+          <div class="ticket-wrap">
+            <span class="tape ticket-t" aria-hidden="true"></span>
+            <div class="ticket">
+              <div class="ticket-main">
+                <p class="printed-head">Repair report</p>
+                <div class="ticket-item">
+                  <h3>See the answer behind each finding</h3>
+                  <p>Read the buyer’s question, see which brands the model named first and follow the links it cited. You can trace each finding back to the answer it came from.</p>
+                </div>
+                <div class="ticket-item">
+                  <h3>Find the first change worth making</h3>
+                  <p>Your report puts the edits in order. Depending on what the scan finds, that might mean answering a buyer’s question at the top of a product page, publishing a comparison with a competitor the models mention, or making your pricing easier to find and cite.</p>
+                </div>
+                <div class="ticket-item">
+                  <h3>Hand the work to whoever edits your site</h3>
+                  <p>Copy one brief into your AI editor or send it to your developer. It includes the findings, the changes to make and templates that fit your report, such as FAQ markup or page titles. It also includes the original questions so you can check the results after publishing.</p>
+                </div>
+              </div>
+              <p class="ticket-stub"><span class="amount">$9</span><span>once</span></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="pricing">
+        <div class="wrap">
+          <h2 id="pricing" class="vinyl-h2">Free to check. Pay once if you want the fix.</h2>
+          <div class="paper prices">
+            <span class="tape price-t" aria-hidden="true"></span>
+            <p class="printed-head">Price list</p>
+            <div class="price">
+              <div class="price-line"><h3>Free check</h3><span class="dots" aria-hidden="true"></span><span class="amount">$0</span></div>
+              <p>Your visibility score, model by model, with the parts that make it up.</p>
+              <a class="btn ghost" href="#check" data-plan="free">Check my visibility for free</a>
+            </div>
+            <div class="price">
+              <div class="price-line"><h3>Your AI visibility repair report</h3><span class="dots" aria-hidden="true"></span><span class="amount">$9</span></div>
+              <p><strong>$9 once. One brand. No subscription.</strong> Get the answers and sources behind your score, a prioritized plan for your website and a ready-to-use editing brief.</p>
+              <a class="btn" href="#check" data-plan="repair">Get my repair report for $9</a>
+            </div>
+            <div class="price">
+              <div class="price-line"><h3>Beat Them report</h3><span class="dots" aria-hidden="true"></span><span class="amount">$19</span></div>
+              <p>Everything in the repair report, plus a side-by-side with up to three competitors the models named, the sites that send buyers their way, and a plan for closing the gap.</p>
+              <a class="btn ghost" href="#check" data-plan="beat">Get Beat Them for $19</a>
+            </div>
+            <p class="prices-note">We send your free score first. To get a paid report, reply to that email.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="faq">
+        <div class="wrap faq">
+          <h2 id="faq" class="vinyl-h2">Before you buy</h2>
+          <div>
+            {faqs.map(([q, a]) => (
+              <details>
+                <summary>{q}<svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><path d="M11 3v16M3 11h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg></summary>
+                <p>{a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="close" aria-label="Start your free check">
+        <a class="btn on-glass" href="#check" data-plan="free">Check my visibility for free</a>
+        <p class="fine">No account or credit card needed.</p>
+      </section>
+    </main>
+
+    <footer class="wrap decal">
+      <span>GEOX · AI visibility reports</span>
+      <span>One brand per report</span>
+      <span>No subscription</span>
+      <span>Scored with GPT-5.4 Nano and Gemini 3 Flash</span>
+    </footer>
+  </div>
+
+  <script is:inline>
+    // Price buttons label the request with the offer they came from; without JS the form still sends a free check.
+    const titles = { free: 'Free check request', repair: 'Repair report request · $9', beat: 'Beat Them request · $19' };
+    const form = document.getElementById('check');
+    for (const link of document.querySelectorAll('a[data-plan]')) {
+      link.addEventListener('click', () => {
+        form.elements.plan.value = link.dataset.plan;
+        document.getElementById('slip-title').textContent = titles[link.dataset.plan];
+      });
+    }
+  </script>
+</body>
+</html>

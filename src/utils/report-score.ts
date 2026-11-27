@@ -24,7 +24,7 @@ export interface ReportScore {
   breakdown: ScoreBreakdownItem[];
 }
 
-function esc(text: unknown): string {
+export function esc(text: unknown): string {
   return String(text ?? '')
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
@@ -103,7 +103,11 @@ export function scoreVerdict(overall: number): string {
   return 'Strong';
 }
 
-export function generateScoreHtml(rawScore: unknown, bots: Array<{ id: string; name: string }> = []): string {
+export function generateScoreHtml(
+  rawScore: unknown,
+  bots: Array<{ id: string; name: string }> = [],
+  note = 'Scored from the same engine answers shown below. Weights and components are listed so the number can be audited.'
+): string {
   const score = normalizeScore(rawScore);
   if (!score) return '';
 
@@ -155,7 +159,7 @@ export function generateScoreHtml(rawScore: unknown, bots: Array<{ id: string; n
                 </table>
             </div>` : ''}
             <p class="mt-4 text-xs text-gray-500 dark:text-gray-400">
-                Scored from the same engine answers shown below. Weights and components are listed so the number can be audited.
+                ${note}
             </p>
         </section>`;
 }
